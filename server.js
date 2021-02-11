@@ -45,20 +45,20 @@ app.listen(port, () => {
  
 
 app.post('/api/treats/', (req, res) => {
-  const meal = req.body
+  const treat = req.body
   // 1
-  database.createTreat(meal, (error, treatId) => {
-    const meal = req.body
+  database.createTreat(treat, (error, treatId) => {
+    const treat = req.body
     // 2
     if (error) {
       res.send({error})
       return
     }
 
-    meal.id = mealId;
+    treat.id = treatId;
 
     // 4
-    res.send({meal})
+    res.send({treat})
   })
 })
 
@@ -82,7 +82,7 @@ app.delete('/api/treats/:id', (req, res) => {
 app.use(express.json())
 app.patch('/api/treats/:id', (req, res) => {
     const id = req.params.id
-    const mealData = req.body
+    const treatData = req.body
 
   database.updateTreat(id, treatData, (error, result) => {
     // 2
