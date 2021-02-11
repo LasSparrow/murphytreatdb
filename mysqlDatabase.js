@@ -10,7 +10,6 @@ const dbDetails = {
   database : process.env.MYSQL_DATABASE || 'xzjrs5msjczif9pp'
 }
 const connection = mysql.createConnection(dbDetails);
-// const connection = mysql.createConnection("mysql://pyqr2bfxi8aoslar:i6x24a129yacj482@phtfaw4p6a970uc0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/jhfzoit8jnhbijbp");
 
 // 3
 function allTreats(callback) {
@@ -37,7 +36,7 @@ function createTreat(treat, callback) {
 
   // 3
   connection.query(query, params, function (error, result) {
-    callback(error, result.insertId)
+    callback(error, result)
   })
 }
 exports.createTreat = createTreat
