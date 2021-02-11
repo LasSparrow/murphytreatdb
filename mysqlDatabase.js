@@ -69,11 +69,11 @@ function updateTreat(id, data, callback) {
 
   let query = `
   UPDATE treats
-  SET completed = ?
+  SET amount = ?
   WHERE id = ?
   `
 
-  let params = [data.completed, id]
+  let params = [data.amount, id]
 
   //3
   connection.query(query, params, (error, result) => {
