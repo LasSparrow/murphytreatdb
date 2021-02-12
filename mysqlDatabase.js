@@ -69,7 +69,7 @@ function updateTreat(id, data, callback) {
 
   let query = `
   UPDATE treats
-  SET amount = ?
+  SET amount = GREATEST(amount + ?, 0)
   WHERE id = ?
   `
 
